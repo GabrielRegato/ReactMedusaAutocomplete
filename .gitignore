@@ -1,23 +1,52 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://create-react-app.dev/docs/ignoring-files/ for a list of files
+# that are ignored by default by Create React App.
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Node.js dependencies
+node_modules/
 
-# testing
-/coverage
+# TypeScript compilation output
+*.js
+*.js.map
 
-# production
-/build
+# TypeScript configuration files
+tsconfig.json
 
-# misc
+# React Fast Refresh
+.fast-refresh
+
+# Coverage files
+coverage/
+
+# Environment files
+.env
+.env.development
+.env.production
+.env.test
+
+# IDE files
+.vscode/
+.idea/
+.atom/
+.sublime/
+
+# OS files
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Other files
+*.log
+*.tmp
+*.temp
+*.old
+*.orig
+*.rej
+*.swp
+*.bak
+*.bkp
+*.backup
+*.cache
+
+# package-lock.json (if using npm)
+package-lock.json

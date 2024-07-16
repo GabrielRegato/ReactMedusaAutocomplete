@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Autocomplete from "./Autocomplete";
+import { AutocompleteItem } from "./types";
+import DataProvider from "./DataProvider";
 
-function App() {
+const App: React.FC = () => {
+  const apiUrl =
+    "http://universities.hipolabs.com/search?country=United+States";
+
+  const onSelect = (item: AutocompleteItem) => {
+    console.log(`Selected item: ${item.label}`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>AutoComplete Component</h1>
+      <DataProvider url={apiUrl}>
+        {(data) => (
+          <Autocomplete
+            data={data.map((university) => ({
+              label: university.name,
+              highlightedLabel: university.name,
+              value: university.name,
+            }))}
+            onSelect={onSelect}
+          />
+        )}
+      </DataProvider>
     </div>
   );
-}
+};
 
 export default App;
